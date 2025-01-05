@@ -5,6 +5,7 @@ import 'package:test/const.dart';
 class InputField extends StatelessWidget {
   String? title;
   String? hint;
+  bool isEmail;
   TextEditingController controller = TextEditingController();
 
   InputField({
@@ -12,9 +13,8 @@ class InputField extends StatelessWidget {
     required this.title,
     required this.hint,
     required this.controller,
+    this.isEmail = false,
   });
-
-  bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,11 @@ class InputField extends StatelessWidget {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'this field is requiered';
-              } else if (!value.isEmail) {
-                return 'please enter valid email';
+              }
+              if (isEmail) {
+                if (!value.isEmail) {
+                  return 'please enter valid email';
+                }
               } else {
                 return null;
               }

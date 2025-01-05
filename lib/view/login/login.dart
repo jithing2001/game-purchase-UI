@@ -44,6 +44,7 @@ class LoginScreen extends StatelessWidget {
                   controller: mailController,
                   title: 'E-mail',
                   hint: 'Enter your Email',
+                  isEmail: true,
                 ),
               ],
             ),
@@ -56,9 +57,8 @@ class LoginScreen extends StatelessWidget {
                 if (formkey.currentState!.validate()) {
                   if (mailController.text == 'abc@gmail.com') {
                     Get.off(HomeScreen());
-                  }else{
-                  controller.signIn(mailController.text);
-
+                  } else {
+                    controller.signIn(mailController.text);
                   }
                 }
               },
