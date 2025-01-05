@@ -38,6 +38,7 @@ class Splashscreen extends StatelessWidget {
 
     // Schedule the `_checkAndAddProducts` function to run after the first frame is rendered.
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await Future.delayed(const Duration(seconds: 3));
       await _checkAndAddProducts();
     });
 
